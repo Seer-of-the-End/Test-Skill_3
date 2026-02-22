@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body {
+  background-color: black;
+  color: #EAEBE4;
+  padding: 0.2rem;
+  border:0.1rem solid #ab1801;
+  min-height: 100vh;
+  display: flex;  
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  font-family: "Manufacturing Consent";
+}
+
+img {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.quote {
+  display: flex;
+  justify-content: center; 
+  font-family: "Manufacturing Consent";
+}
+
+.description {
+  border: 0.1rem solid #ab1801;
+  border-radius: 0.6rem;
+  padding: 0.3rem;
+  margin: 0.6rem;  
+}
+
+.description h2 {
+  font-size: 1.5rem;
+  
+}
+
+.top-music {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0.8rem;
+
+}
+
+.top-h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+.albums {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.3rem 0.1rem;
+} 
+
+.albums h3 {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.divs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  border: 0.1rem solid #b21e07;
+  border-radius: 0.4rem;
+  padding: 0.3rem;
+  min-height: 7rem;
+  font-size: clamp(0.9rem, 1vw, 1rem);
+}
+
+.top-h1 {
+  filter: drop-shadow(0.1rem 0.1rem 0 #ff2200) brightness(120%);
+}
+.top {
+  filter: drop-shadow(0 0 4px #ff2200) brightness(120%);
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
