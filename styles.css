@@ -4,11 +4,16 @@
   text-decoration: none;
 }
 
+:root {
+  --margin-h3: 0.3rem; 
+  --grid-column-h3: 1 / -1;
+  --border-color: #ab1801;
+}
+
 body {
   background-color: black;
   color: #EAEBE4;
   padding: 0.2rem;
-  border:0.1rem solid #ab1801;
   min-height: 100vh;
   display: flex;  
   flex-direction: column;
@@ -20,10 +25,21 @@ header {
   justify-content: center;
   font-family: "Manufacturing Consent";
 }
-
-img {
+.imgs {
   width: 2.5rem;
   height: 2.5rem;
+}
+.top-h1, .imgs{
+  filter: drop-shadow(0.1rem 0.1rem 0 #ff2200) brightness(120%);
+}
+
+.top {
+  font-size: 1.3rem;
+  place-self: center;
+  text-align: center; 
+  filter: drop-shadow(0 0 4px #ff2200) brightness(120%);
+  margin: var(--margin-h3);
+  grid-column: var(--grid-column-h3);
 }
 
 .quote {
@@ -33,26 +49,23 @@ img {
 }
 
 .description {
-  border: 0.1rem solid #ab1801;
+  display: grid;
   border-radius: 0.6rem;
-  padding: 0.3rem;
-  margin: 0.6rem;  
+  padding: 0.4rem 1rem 0.4rem 0.4rem;
+  margin: 0.6rem;
+  border-left: 2px solid var(--border-color);
+  border-right: 2px solid var(--border-color);
+  border-radius: 1rem;  
 }
-
 .description h2 {
   font-size: 1.5rem;
-  
 }
 
 .top-music {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  display: grid;
+  place-items: center;
   margin: 0.8rem;
-
 }
-
 .top-h3 {
   display: flex;
   justify-content: center;
@@ -62,31 +75,113 @@ img {
 .albums {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.3rem 0.1rem;
+  gap: 0.5rem;
+  
 } 
-
-.albums h3 {
-  grid-column: 1 / -1;
+.albums-divs {
+  display: grid;
   text-align: center;
-}
-
-.divs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  border: 0.1rem solid #b21e07;
+  place-items: center;
+  border: 0.1rem solid var(--border-color);
   border-radius: 0.4rem;
   padding: 0.3rem;
   min-height: 7rem;
-  font-size: clamp(0.9rem, 1vw, 1rem);
+  font-size: clamp(1rem, 1.5vw, 2rem);
+  transition: filter 0.3s ease-out, border 0.3s ease-out;
+}
+@keyframes albums {
+  0%{transform: scale(1);}
+  50%{transform: scale(0.95);}
+  100%{transform: scale(1);}
 }
 
-.top-h1 {
-  filter: drop-shadow(0.1rem 0.1rem 0 #ff2200) brightness(120%);
+.albums-divs:active {
+  animation: albums 0.3s ease-in-out;
+  border: 2px solid #620000;
 }
-.top {
-  filter: drop-shadow(0 0 4px #ff2200) brightness(120%);
+
+.members {
+  display: grid;
+  margin-bottom: 2rem;
+}
+.current, .former {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(2, 1fr);
+  color: #f3d3d3;
+  text-align: center;
+  border-left: 2px solid var(--border-color);
+  border-right: 2px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1rem;  
+  margin: 1rem;
+}
+.members h3 {
+  margin-top: 2rem;
+}
+.members > h3:nth-child(1) {
+  border-top: 2px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+.current-divs, .former-divs {
+  border-left: 2px solid var(--border-color);
+  border-right: 2px solid var(--border-color);
+  border-radius: 1.5rem;
+  background: linear-gradient(
+  to right,
+  #ff2200,    
+  transparent 5%,
+  transparent 95%,
+  #ff2200
+);
+  padding: 0.6rem;
+  font-size: clamp(0.9rem, 1.5vw, 2rem);
+}
+.nero::before {
+  content: "⛦" !important;
+}
+.current-divs h4::before {
+  content: "☣︎";
+  margin-right: 0.2rem;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 0.2rem #c10000);
+}
+.former-divs h4::before {
+  content: "☠";
+  margin-right: 0.2rem;
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 0.2rem #c10000) brightness(90%);
+}
+
+.concerts {
+  display: grid;
+  text-align: center;
+  border-left: 2px solid var(--border-color);
+  border-right: 2px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 1rem;  
+  margin: 1rem;
+  gap: 1rem;
+
+}
+.concerts-divs {
+  display: grid;
+  grid-template-columns: auto 1fr auto; 
+  align-items: center;
+  padding: 0.6rem 1rem;
+  gap: 1rem;
+  border-left: 2px solid var(--border-color);
+  border-right: 2px solid var(--border-color);
+  border-radius: 0.3rem;
+  font-size: clamp(0.8rem, 1.5vw, 2rem);
+  background: linear-gradient(
+  to right,
+  #ff2200,    
+  transparent 1.5%,
+  transparent 98.5%,
+  #ff2200
+);
 }
 
 footer {
