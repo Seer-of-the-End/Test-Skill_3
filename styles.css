@@ -33,15 +33,6 @@ header {
   filter: drop-shadow(0.1rem 0.1rem 0 #ff2200) brightness(120%);
 }
 
-.top {
-  font-size: 1.3rem;
-  place-self: center;
-  text-align: center; 
-  filter: drop-shadow(0 0 4px #ff2200) brightness(120%);
-  margin: var(--margin-h3);
-  grid-column: var(--grid-column-h3);
-}
-
 .quote {
   display: flex;
   justify-content: center; 
@@ -57,8 +48,16 @@ header {
   border-right: 2px solid var(--border-color);
   border-radius: 1rem;  
 }
-.description h2 {
-  font-size: 1.5rem;
+.description h2, .top {
+  font-size: 1.3rem;
+}
+
+.top {
+  place-self: center;
+  text-align: center; 
+  filter: drop-shadow(0 0 4px #ff2200) brightness(120%);
+  margin: var(--margin-h3);
+  grid-column: var(--grid-column-h3);
 }
 
 .top-music {
@@ -86,7 +85,6 @@ header {
   border-radius: 0.4rem;
   padding: 0.3rem;
   min-height: 7rem;
-  font-size: clamp(1rem, 1.5vw, 2rem);
   transition: filter 0.3s ease-out, border 0.3s ease-out;
 }
 @keyframes albums {
@@ -174,7 +172,6 @@ header {
   border-left: 2px solid var(--border-color);
   border-right: 2px solid var(--border-color);
   border-radius: 0.3rem;
-  font-size: clamp(0.8rem, 1.5vw, 2rem);
   background: linear-gradient(
   to right,
   #ff2200,    
@@ -188,4 +185,43 @@ footer {
   display: flex;
   justify-content: center;
   margin-top: auto;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: clamp(21px, 2vw, 30px);
+  }
+  .top, .description h2 {
+    font-size: 1.8rem;
+  }
+  .albums {
+    margin: 0 0.5rem 0 0.5rem;
+    gap: 0.7rem;
+  }
+  .current-divs, .former-divs {
+    border-left: 2px solid var(--border-color);
+    border-right: 2px solid var(--border-color);
+    border-radius: 1.6rem;
+    background: linear-gradient(
+      to right,
+    #ff2200,    
+      transparent 2%,
+      transparent 98%,
+    #ff2200
+    );
+    padding: 0.6rem;
+    font-size: clamp(20px, 2vw, 30px);
+  }
+  .concerts-divs {
+    background: linear-gradient(
+      to right,
+    #ff2200,    
+      transparent 1%,
+      transparent 99%,
+    #ff2200
+    );
+  }
+  .current-divs h4::before, .former-divs h4::before {
+    font-size: 2rem;
+  }
 }
